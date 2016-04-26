@@ -4,8 +4,6 @@ import java.util.*;
 
 import org.bdmt.dbc.DBConnection;
 
-//import org.postgresql.postgresql.Driver;
-
 public class Main 
 {
     public static void main( String[] args ) throws Exception
@@ -20,18 +18,11 @@ public class Main
         Boolean success = dbc.connect();
         
         if(!success) return;
-      
-        System.out.println("We did it, dude!");
         
-        // dbc.printMostRecentMessage();
+        // dbc.generateData();
+        // System.out.printf("Job ID of \"test_151515\" is %d\n", dbc.getJobID("test_151515"));
+        dbc.generateData(true);
         
-        if(args.length > 2) {
-            System.out.printf("Sending message to DB \"%s\"\n", args[2]);
-            dbc.postMessage(args[2]);
-            dbc.printMostRecentMessage();
-        }
-        
-
         
         dbc.close();
     }
